@@ -2,6 +2,16 @@
 
 Crystal 151 is a static, browser-only application. It deliberately avoids a backend, database, WebAssembly, synchronization service, analytics pipeline, and cloud persistence.
 
+## Methodology
+
+The project was approached as a one-shot exercise in building the smallest well-architected application that fully met the brief.
+
+The conversation progressively established the product boundary: only the original 151 Pokémon, client-side fetching and filtering, recoverable browser caching, validated versioned filter definitions, and static S3/CloudFront delivery. Native browser and platform capabilities were favored over dependencies or speculative abstractions.
+
+Implementation followed those constraints directly. TypeScript source was divided into small focused components, risky inputs and API responses were validated at their boundaries, infrastructure reused an existing proven Terraform pattern, and focused tests covered the behaviors most likely to fail.
+
+The result aims to be complete enough to deploy in one pass while remaining easy to understand, verify, and replace.
+
 ## Application structure
 
 - `src/browser/app.ts` is the composition root and keeps the active dataset as an in-memory array.
