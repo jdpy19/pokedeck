@@ -1,0 +1,17 @@
+{
+  "name": "crystal-151",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check dist/app.js && node --check dist/modules/filter.js && node --check dist/modules/data-source.js",
+    "build:assets": "node scripts/build.mjs",
+    "build": "npm run build:assets && npm run check && npm test",
+    "preview": "python3 -m http.server 4173 -d dist",
+    "deploy": "./scripts/deploy.sh",
+    "format:check": "terraform -chdir=terraform fmt -check -recursive -diff",
+    "provision": "./scripts/provision.sh apply",
+    "provision:plan": "./scripts/provision.sh plan"
+  }
+}

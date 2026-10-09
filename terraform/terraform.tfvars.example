@@ -1,0 +1,6 @@
+domain_name     = "pokedex.ditsbits.com"
+hosted_zone_name = "ditsbits.com"
+
+tags = {
+  Environment = "production"
+}
